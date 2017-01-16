@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 
+import { SettingsService } from './settings.service';
+import { Settings } from './settings';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'app works!';
+  settings: Settings;
+  theme: string;
+
+  constructor(private _settingsService: SettingsService) {
+    this.settings = this._settingsService.settings;
+  }
 }
